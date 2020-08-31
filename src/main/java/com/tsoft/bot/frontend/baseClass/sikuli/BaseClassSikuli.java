@@ -66,10 +66,9 @@ public class BaseClassSikuli {
             } else {
                 generateWord.sendText("Error : No se encontró el elemento en la pagina");
             }
-        } catch (Throwable t) {
+        } catch (Exception t) {
             generateWord.sendText("Error : No se encontró el elemento : " + pathImage);
-            generateWord.addImageToWord(driver);
-            throw t;
+
         }
     }
 

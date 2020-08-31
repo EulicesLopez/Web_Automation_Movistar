@@ -27,7 +27,6 @@ public class DeliverySteps extends BaseClass {
         direccionPageObject.ingresoDatosDireccion(casoPrueba);
 
 
-
     }
 
     @And("^Completa datos de la direccion completa y da clic en el boton Confirmar ubicacion \"([^\"]*)\"$")
@@ -37,8 +36,8 @@ public class DeliverySteps extends BaseClass {
     }
 
     @And("^Completa datos de entrega \"([^\"]*)\"$")
-    public void completaDatosDeEntrega(String casoPrueba) {
-
+    public void completaDatosDeEntrega(String casoPrueba) throws Throwable {
+        formaEntregaPageObject.ingresoDatosFormaEntrega(casoPrueba);
     }
 
     @Then("^Usuario da clic en boton Confirmar delivery$")

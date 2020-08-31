@@ -1,5 +1,6 @@
 package com.tsoft.bot.frontend.pageobject.Movistar;
 
+import com.tsoft.bot.frontend.baseClass.sikuli.BaseClassSikuli;
 import com.tsoft.bot.frontend.helpers.Hook;
 import com.tsoft.bot.frontend.utility.ExcelReader;
 import com.tsoft.bot.frontend.utility.ExtentReportUtil;
@@ -19,9 +20,15 @@ public class FormaEntregaPageObject {
     private final String COLUMN_INTRUCCIONES = "Intrucciones";
     private final String COLUMN_HORARIO_ENTREGA = "HorarioEntrega";
 
+    //sikuli
+    public static final String BASE_PAHT = System.getProperty("user.dir") + "/src/main/resources/images/Movistar/";
+    public static final String SELECT_TIPO_ENTREGA = BASE_PAHT + "tipoEntrega.PNG";
+
+
+
 
     public FormaEntregaPageObject() {
-      //  this.driver = Hook.getDriver();
+     this.driver = Hook.getDriver();
     }
 
     private List<HashMap<String, String>> getData2() throws Throwable {
@@ -37,6 +44,9 @@ public class FormaEntregaPageObject {
         String Titular= getData2().get(valores).get(COLUMN_TITULAR);
         String  Intrucciones= getData2().get(valores).get(COLUMN_INTRUCCIONES);
         String  HorarioEntrega= getData2().get(valores).get(COLUMN_HORARIO_ENTREGA);
+
+           // BaseClassSikuli.clickSikuli(SELECT_TIPO_ENTREGA, 2);
+
 
         ExtentReportUtil.INSTANCE.stepPass(driver, "Se llena los datos de Forma de Entrega");
         generateWord.sendText("Se llena los datos de Forma de Entrega");

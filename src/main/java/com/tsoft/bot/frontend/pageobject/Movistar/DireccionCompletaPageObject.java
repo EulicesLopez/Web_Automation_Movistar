@@ -62,14 +62,14 @@ public class DireccionCompletaPageObject extends BaseClass {
         String nombreConjuntoHabitacionalData = getData1().get(valores).get(COLUMN_NOMBRE_COJUNTO_HABITACIONAL);
 
         try {
-            BaseClassSikuli.doubleClick(INPUT_MANZANA, 3);
+         /* BaseClassSikuli.doubleClick(INPUT_MANZANA, 3);
             BaseClassSikuli.type(INPUT_MANZANA, manzanaData);
             BaseClassSikuli.doubleClick(INPUT_LOTE, 3);
             BaseClassSikuli.type(INPUT_LOTE, loteData);
             BaseClassSikuli.doubleClick(INPUT_PISO, 3);
             BaseClassSikuli.type(INPUT_PISO, pisoData);
             BaseClassSikuli.doubleClick(INPUT_INTERIOR, 3);
-            BaseClassSikuli.type(INPUT_INTERIOR, interiorData);
+            BaseClassSikuli.type(INPUT_INTERIOR, interiorData);*/
 
             ExtentReportUtil.INSTANCE.stepPass(driver, "Se llena los datos de direccion Completa");
             generateWord.sendText("Se llena los datos de direccion Completa");
@@ -85,7 +85,7 @@ public class DireccionCompletaPageObject extends BaseClass {
     public void seleccionarBotonConfirmarUbicacion() throws Throwable {
         try {
             BaseClassSikuli.scrollSikuli(BARRA_NAVEGACION, "DOWN", 30);
-            BaseClassSikuli.clickSikuli(BTN_CONF_UBICACION, 2);
+            BaseClassSikuli.doubleClick(BTN_CONF_UBICACION, 2);
             ExtentReportUtil.INSTANCE.stepPass(driver, "Se dio clic en e boton Confirmar Ubicacion");
             generateWord.sendText("Se dio clic en e boton Confirmar Ubicacion");
             generateWord.addImageToWord(driver);

@@ -6,21 +6,6 @@ import java.util.regex.Pattern;
 
 public class ValidatorData {
 
-    public static void main(String[] args) {
-
-
-
-        String dniiii = "74542681";
-        String ruc = "10542683412";
-        String letra = "AaagfgAfgfgfg";
-        String numero = "05454400424";
-        System.out.println(" DNI: " + validarDNI(dniiii));
-        System.out.println(" RUC: " + validarRUC(ruc));
-        System.out.println(" solo letras: " + validarSoloLetras(letra));
-        System.out.println(" solo nume 2: " + validarSoloNumeros(numero));
-
-    }
-
 
     public static boolean validarDNI(String dni) {
         Pattern patron = Pattern.compile("[0-9]{8}");

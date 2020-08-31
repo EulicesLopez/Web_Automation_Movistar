@@ -66,7 +66,7 @@ public class DireccionPageObject extends BaseClass {
 
             BaseClassSikuli.doubleClick(INPUT_REFERENCIA, 5);
             BaseClassSikuli.type(INPUT_REFERENCIA, referenciaData);
-            BaseClassSikuli.clickSikuli(BTN_CONST_UBICACION, 3);
+            BaseClassSikuli.doubleClick(BTN_CONST_UBICACION, 3);
 
 
             ExtentReportUtil.INSTANCE.stepPass(driver, "Se llena los datos de direccion");
