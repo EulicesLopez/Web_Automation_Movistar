@@ -7,7 +7,10 @@ import com.tsoft.bot.frontend.utility.ExcelReader;
 import com.tsoft.bot.frontend.utility.ExtentReportUtil;
 import com.tsoft.bot.frontend.utility.GenerateWord;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.sikuli.script.Screen;
 
 import java.util.HashMap;
@@ -33,16 +36,13 @@ public class DireccionPageObject extends BaseClass {
     public static String SELECT_PROVINCIA = "div.cont-steps > tdp-st-card:nth-child(1) > div > div._body > form > div:nth-child(2)";
     public static String SELECT_DISTRITO = "div._body > form > div:nth-child(3)";
     public static String TXT_DIRECCION = "div._body > form > div:nth-child(4)";
-    public static String TXT_REFERENCIA = "//tdp-st-input-text[@class='ng-pristine ng-invalid flex_100 hydrated ng-touched']";
+    //public static String TXT_REFERENCIA =  ".tdp-row:nth-child(5)";
+    //public static String TXT_REFERENCIA = "div._body > form > div:nth-child(5)";
+
+    public static String TXT_REFERENCIA = "//tdp-st-input-text[@formcontrolname='reference']";
     public static String BTN_CONSULTAR_UBICACION = "//button[@class='button_step']";
     public static String MENSAJE = "//span[contains(text(),'La dirección ingresada NO TIENE COBERTURA delivery')]";
 
-
-    //sikuli
-    public static final String BASE_PAHT = System.getProperty("user.dir") + "/src/main/resources/images/Movistar/";
-    public static final String INPUT_DIRECCION = BASE_PAHT + "direccion2.PNG";
-    public static final String INPUT_REFERENCIA = BASE_PAHT + "referencia.PNG";
-    public static final String BTN_CONST_UBICACION = BASE_PAHT + "btn_consultarUbicacion.PNG";
 
     public DireccionPageObject() {
 
@@ -64,10 +64,9 @@ public class DireccionPageObject extends BaseClass {
             String referenciaData = getData().get(valores).get(COLUMN_REFERENCIA);
 
 
-            BaseClassSikuli.doubleClick(INPUT_REFERENCIA, 5);
-            BaseClassSikuli.type(INPUT_REFERENCIA, referenciaData);
-            BaseClassSikuli.doubleClick(BTN_CONST_UBICACION, 3);
-
+            click(driver, "xpath", TXT_REFERENCIA);
+            sendKeyValue(driver, "xpath", TXT_REFERENCIA, referenciaData);
+            click(driver, "xpath", BTN_CONSULTAR_UBICACION);
 
             ExtentReportUtil.INSTANCE.stepPass(driver, "Se llena los datos de direccion");
             generateWord.sendText("Se llena los datos de direccion");
@@ -90,7 +89,7 @@ public class DireccionPageObject extends BaseClass {
             generateWord.sendText("se cargo el AKS");
             generateWord.addImageToWord(driver);
 
-            sleep(5000);
+            sleep(3000);
             cargarBrowser(driver, "http://wa-berserkers-webdelivery-cert.azurewebsites.net/delivery");
             ExtentReportUtil.INSTANCE.stepPass(driver, "Se ingresó a la pagina web");
             generateWord.sendText("Se ingresó a la pagina web");

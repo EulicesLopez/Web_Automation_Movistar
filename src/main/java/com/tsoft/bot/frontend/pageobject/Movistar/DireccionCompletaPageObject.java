@@ -28,15 +28,8 @@ public class DireccionCompletaPageObject extends BaseClass {
     private final String COLUMN_TIPO_COJUNTO_HABITACIONAL = "TipoConjuntoHabitacional";
     private final String COLUMN_NOMBRE_COJUNTO_HABITACIONAL = "NombreConjuntoHabitacional";
 
-
-    //sikuli
-    public static final String BASE_PAHT = System.getProperty("user.dir") + "/src/main/resources/images/Movistar/";
-    public static final String INPUT_MANZANA = BASE_PAHT + "manzana.PNG";
-    public static final String INPUT_LOTE = BASE_PAHT + "lote.PNG";
-    public static final String INPUT_PISO = BASE_PAHT + "piso.PNG";
-    public static final String INPUT_INTERIOR = BASE_PAHT + "interior.PNG";
-    public static final String BARRA_NAVEGACION = BASE_PAHT + "barra.PNG";
-    public static final String BTN_CONF_UBICACION = BASE_PAHT + "btn_confirmarUbicacion.PNG";
+    public static String INPUT_MANZANA_BLOQUE = "//tdp-st-input-text[@formcontrolname='block']";
+    public static  String BTN_CONF_UBICACION="//button[@class='button_step']";
 
 
     public DireccionCompletaPageObject() {
@@ -62,14 +55,9 @@ public class DireccionCompletaPageObject extends BaseClass {
         String nombreConjuntoHabitacionalData = getData1().get(valores).get(COLUMN_NOMBRE_COJUNTO_HABITACIONAL);
 
         try {
-         /* BaseClassSikuli.doubleClick(INPUT_MANZANA, 3);
-            BaseClassSikuli.type(INPUT_MANZANA, manzanaData);
-            BaseClassSikuli.doubleClick(INPUT_LOTE, 3);
-            BaseClassSikuli.type(INPUT_LOTE, loteData);
-            BaseClassSikuli.doubleClick(INPUT_PISO, 3);
-            BaseClassSikuli.type(INPUT_PISO, pisoData);
-            BaseClassSikuli.doubleClick(INPUT_INTERIOR, 3);
-            BaseClassSikuli.type(INPUT_INTERIOR, interiorData);*/
+
+            click(driver,"xpath",INPUT_MANZANA_BLOQUE);
+            sendKeyValue(driver,"xpath",INPUT_MANZANA_BLOQUE,manzanaData);
 
             ExtentReportUtil.INSTANCE.stepPass(driver, "Se llena los datos de direccion Completa");
             generateWord.sendText("Se llena los datos de direccion Completa");
@@ -84,8 +72,9 @@ public class DireccionCompletaPageObject extends BaseClass {
 
     public void seleccionarBotonConfirmarUbicacion() throws Throwable {
         try {
-            BaseClassSikuli.scrollSikuli(BARRA_NAVEGACION, "DOWN", 30);
-            BaseClassSikuli.doubleClick(BTN_CONF_UBICACION, 2);
+
+            click(driver,"xpath",BTN_CONF_UBICACION);
+
             ExtentReportUtil.INSTANCE.stepPass(driver, "Se dio clic en e boton Confirmar Ubicacion");
             generateWord.sendText("Se dio clic en e boton Confirmar Ubicacion");
             generateWord.addImageToWord(driver);
