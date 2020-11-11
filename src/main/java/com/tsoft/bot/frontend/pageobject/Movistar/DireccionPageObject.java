@@ -35,10 +35,12 @@ public class DireccionPageObject extends BaseClass {
     public static String SELECT_DEPARTAMENTO = "div.cont-steps > tdp-st-card:nth-child(1) > div > div._body > form > div:nth-child(1)";
     public static String SELECT_PROVINCIA = "div.cont-steps > tdp-st-card:nth-child(1) > div > div._body > form > div:nth-child(2)";
     public static String SELECT_DISTRITO = "div._body > form > div:nth-child(3)";
-    public static String TXT_DIRECCION = "div._body > form > div:nth-child(4)";
+
     //public static String TXT_REFERENCIA =  ".tdp-row:nth-child(5)";
     //public static String TXT_REFERENCIA = "div._body > form > div:nth-child(5)";
 
+
+    public static String TXT_DIRECCION = "//tdp-st-input-text[@formcontrolname='direction']";
     public static String TXT_REFERENCIA = "//tdp-st-input-text[@formcontrolname='reference']";
     public static String BTN_CONSULTAR_UBICACION = "//button[@class='button_step']";
     public static String MENSAJE = "//span[contains(text(),'La dirección ingresada NO TIENE COBERTURA delivery')]";
@@ -64,6 +66,9 @@ public class DireccionPageObject extends BaseClass {
             String referenciaData = getData().get(valores).get(COLUMN_REFERENCIA);
 
 
+//            click(driver, "xpath", TXT_DIRECCION);
+//            sendKeyValue(driver, "xpath", TXT_DIRECCION, direccionData);
+
             click(driver, "xpath", TXT_REFERENCIA);
             sendKeyValue(driver, "xpath", TXT_REFERENCIA, referenciaData);
             click(driver, "xpath", BTN_CONSULTAR_UBICACION);
@@ -84,12 +89,12 @@ public class DireccionPageObject extends BaseClass {
     public void cargarWeb() throws Throwable {
         try {
 
-            cargarBrowser(driver, "https://aks-berserkers-ingress-cert.eastus2.cloudapp.azure.com/customer/v1/DNI/22174");
-            ExtentReportUtil.INSTANCE.stepPass(driver, "se cargo el AKS");
-            generateWord.sendText("se cargo el AKS");
-            generateWord.addImageToWord(driver);
+//            cargarBrowser(driver, "https://aks-berserkers-ingress-cert.eastus2.cloudapp.azure.com/customer/v1/DNI/22174");
+//            ExtentReportUtil.INSTANCE.stepPass(driver, "se cargo el AKS");
+//            generateWord.sendText("se cargo el AKS");
+//            generateWord.addImageToWord(driver);
 
-            sleep(3000);
+//            sleep(3000);
             cargarBrowser(driver, "http://wa-berserkers-webdelivery-cert.azurewebsites.net/delivery");
             ExtentReportUtil.INSTANCE.stepPass(driver, "Se ingresó a la pagina web");
             generateWord.sendText("Se ingresó a la pagina web");

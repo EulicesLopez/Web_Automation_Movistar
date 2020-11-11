@@ -12,3 +12,13 @@ Feature: Flujo Delivery Movistar
     Examples:
       | caso_de_prueba |
       | 1              |
+
+
+  @BandejaAudio
+  Scenario: Bandeja de Audio
+    Given Usuario se encuentra en el aplicativo Bandeja Audio
+    When Click en Bandeja de Back Office
+    And Ver detalle de la orden
+    Then Realizar carga de audio
+    And Verificar registro de carga de audio
+
